@@ -1,3 +1,14 @@
+:root {
+    --primary: #8b5cf6;
+    --primary-dark: #7041d8;
+    --lavender: #eee5ff;
+    --background: #f8f7fc;
+    --text: #25213a;
+    --muted: #777187;
+    --border: #e7e2f0;
+    --white: #ffffff;
+}
+
 * {
     box-sizing: border-box;
 }
@@ -5,15 +16,16 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: #f3f4f8;
-    color: #25283d;
+    background: var(--background);
+    color: var(--text);
+    line-height: 1.6;
 }
 
 header {
-    background: #5b5bd6;
+    background: linear-gradient(135deg, #8b5cf6, #b9a0ff);
     color: white;
     text-align: center;
-    padding: 35px 20px;
+    padding: 38px 20px;
 }
 
 header h1 {
@@ -22,59 +34,261 @@ header h1 {
 }
 
 header p {
-    margin-bottom: 0;
-    font-size: 17px;
+    margin: 8px 0 0;
+    font-size: 16px;
 }
 
 main {
-    max-width: 600px;
-    margin: 45px auto;
+    width: calc(100% - 32px);
+    max-width: 760px;
+    margin: 35px auto;
     padding: 30px;
-    background: white;
-    border-radius: 14px;
-    box-shadow: 0 5px 20px #00000012;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    box-shadow: 0 8px 30px #39216b0d;
 }
 
-main h2 {
-    font-size: 22px;
+section h2 {
     margin-top: 0;
+    margin-bottom: 5px;
+    font-size: 23px;
 }
 
-input {
-    width: 70%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 7px;
+section p {
+    color: var(--muted);
+    margin-top: 4px;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid var(--border);
+    margin: 30px 0;
+}
+
+input:not([type="checkbox"]) {
+    width: 100%;
+    min-width: 0;
+    padding: 13px 14px;
+    margin: 8px 0;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    font-size: 15px;
+    font-family: inherit;
+    outline: none;
+    background: #fdfcff;
+}
+
+input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px #8b5cf61a;
 }
 
 button {
-    padding: 12px 16px;
-    background: #5b5bd6;
+    padding: 11px 16px;
+    background: var(--primary);
     color: white;
     border: none;
-    border-radius: 7px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
     cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
 }
 
 button:hover {
-    background: #4545b5;
+    background: var(--primary-dark);
+    transform: translateY(-1px);
 }
 
-li {
-    margin-top: 15px;
-    padding: 12px;
-    background: #f3f4f8;
-    border-radius: 7px;
+button:disabled {
+    background: #d9cafa;
+    color: #51436c;
+    cursor: default;
+    transform: none;
 }
 
-@media (max-width: 650px) {
-    main {
-        margin: 20px;
-        padding: 20px;
+#goalSection {
+    padding: 22px;
+    background: #fbf9ff;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+}
+
+#suggestButton {
+    width: 100%;
+    margin-top: 8px;
+}
+
+#suggestions {
+    margin-top: 20px;
+}
+
+#suggestions h3,
+#customStepSection h3 {
+    font-size: 17px;
+    margin-bottom: 10px;
+}
+
+#suggestions ul {
+    list-style: none;
+    padding: 0;
+}
+
+#suggestions li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 13px;
+    margin-bottom: 10px;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 11px;
+}
+
+#suggestions li span {
+    flex: 1;
+    min-width: 130px;
+    overflow-wrap: anywhere;
+}
+
+#suggestions li button {
+    padding: 9px 12px;
+    font-size: 12px;
+}
+
+#customStepSection {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid var(--border);
+}
+
+#taskForm {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#taskForm input {
+    flex: 1;
+    margin: 8px 0;
+}
+
+#taskForm button {
+    flex-shrink: 0;
+}
+
+#taskList {
+    list-style: none;
+    padding: 0;
+    margin-top: 22px;
+}
+
+#taskList li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+    padding: 15px;
+    background: #faf8ff;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    transition: background 0.2s;
+}
+
+#taskList li:hover {
+    background: #f1eaff;
+}
+
+#taskList li input[type="checkbox"] {
+    flex-shrink: 0;
+    width: 17px;
+    height: 17px;
+    accent-color: var(--primary);
+    cursor: pointer;
+}
+
+#taskList li span {
+    flex: 1;
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+#taskList li button {
+    flex-shrink: 0;
+    padding: 8px 11px;
+    background: var(--lavender);
+    color: var(--primary-dark);
+}
+
+#taskList li button:hover {
+    background: #e0d0ff;
+}
+
+#progress {
+    padding: 20px;
+    background: #fbf9ff;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+}
+
+#progressText {
+    font-weight: 600;
+    color: var(--text);
+}
+
+#progressBar {
+    width: 100%;
+    height: 14px;
+    accent-color: var(--primary);
+}
+
+footer {
+    text-align: center;
+    padding: 10px 20px 25px;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+@media (max-width: 600px) {
+    header {
+        padding: 28px 16px;
     }
 
-    input {
+    header h1 {
+        font-size: 29px;
+    }
+
+    main {
+        margin: 20px auto;
+        padding: 18px;
+    }
+
+    #goalSection {
+        padding: 16px;
+    }
+
+    #taskForm {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    #taskForm button {
         width: 100%;
-        margin-bottom: 10px;
+    }
+
+    #suggestions li {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    #suggestions li button {
+        width: 100%;
     }
 }

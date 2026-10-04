@@ -3,27 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ActionBridge</title>
+
+    <title>ActionBridge | Turn Goals Into Action</title>
+
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
+
 <body>
 
     <header>
-        <h1>ActionBridge</h1>
-        <p>Turn your intentions into actions.</p>
+        <h1>🌉 ActionBridge</h1>
+        <p>Turn your goals into small, achievable actions.</p>
     </header>
 
     <main>
-        <h2>What do you want to accomplish today?</h2>
 
-        <input type="text" id="taskInput"
-               placeholder="Enter your task">
+        <!-- Goal Breakdown Section -->
+        <section id="goalSection">
+            <h2>🌱 Break It Down</h2>
+            <p>Big goal? Let's break it into smaller steps.</p>
 
-        <button id="addTask">Add Task</button>
+            <input
+                type="text"
+                id="goalInput"
+                placeholder="e.g. Learn Python"
+            >
 
-        <ul id="taskList"></ul>
+            <button id="suggestButton">
+                Suggest Steps ✨
+            </button>
+
+            <div id="suggestions"></div>
+
+            <!-- Add Custom Step -->
+            <div id="customStepSection" hidden>
+                <h3>Add Your Own Step</h3>
+
+                <input
+                    type="text"
+                    id="customStepInput"
+                    placeholder="Enter your own step"
+                >
+
+                <button id="addCustomStep">
+                    Add Step
+                </button>
+            </div>
+        </section>
+
+        <hr>
+
+        <!-- Task List Section -->
+        <section id="taskSection">
+            <h2>📝 My Action List</h2>
+            <p>Every small step takes you closer to your goal.</p>
+
+            <div id="taskForm">
+                <input
+                    type="text"
+                    id="taskInput"
+                    placeholder="What do you want to do?"
+                >
+
+                <button id="addTask">
+                    + Add Task
+                </button>
+            </div>
+
+            <ul id="taskList"></ul>
+        </section>
+
+        <hr>
+
+        <!-- Progress Tracker -->
+        <section id="progress">
+            <h2>📈 Your Progress</h2>
+
+            <p id="progressText">
+                0 of 0 tasks completed (0%)
+            </p>
+
+            <progress
+                id="progressBar"
+                value="0"
+                max="100"
+            ></progress>
+        </section>
+
     </main>
 
-    <script src="script.js"></script>
+    <footer>
+        <p>🌷 Small steps. Real progress. One goal at a time.</p>
+    </footer>
+
 </body>
 </html>
